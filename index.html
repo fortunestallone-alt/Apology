@@ -1,1593 +1,772 @@
-<!DOCTYPE html>  <html lang="en">  <head>  <meta charset="UTF-8">  <meta name="viewport"  
-content="width=device-width, initial-scale=1.0">
+Hinata Apology Website — "index.html"
 
-<title>For Hinata ❤️</title>  <style>  
-  
-/* =========================  
-   GENERAL  
-========================= */  
-  
-* {  
-    box-sizing: border-box;  
-}  
-  
-html {  
-    scroll-behavior: smooth;  
-}  
-  
-body {  
-    margin: 0;  
-  
-    font-family:  
-        Georgia,  
-        "Times New Roman",  
-        serif;  
-  
-    background:  
-        radial-gradient(  
-            circle at top,  
-            #fff0f5 0%,  
-            transparent 35%  
-        ),  
-        linear-gradient(  
-            135deg,  
-            #ffd6e1,  
-            #f5a3bb,  
-            #ffe9ef  
-        );  
-  
-    color: #4a1d2b;  
-  
-    overflow-x: hidden;  
-  
-    transition: 0.5s ease;  
-}  
-  
-body.music-playing {  
-  
-    background:  
-        radial-gradient(  
-            circle at top,  
-            #ffe5ee 0%,  
-            transparent 35%  
-        ),  
-        linear-gradient(  
-            135deg,  
-            #ffc4d6,  
-            #ee91ae,  
-            #ffe4ec  
-        );  
-}  
-  
-  
-/* =========================  
-   PIN SCREEN  
-========================= */  
-  
-#pinScreen {  
-  
-    position: fixed;  
-  
-    inset: 0;  
-  
-    z-index: 99999;  
-  
-    display: flex;  
-  
-    align-items: center;  
-  
-    justify-content: center;  
-  
-    padding: 20px;  
-  
-    background:  
-        radial-gradient(  
-            circle at top,  
-            #fff0f5,  
-            transparent 40%  
-        ),  
-        linear-gradient(  
-            135deg,  
-            #ffd6e1,  
-            #f5a3bb,  
-            #ffe9ef  
-        );  
-}  
-  
-.pin-box {  
-  
-    width: 100%;  
-  
-    max-width: 400px;  
-  
-    text-align: center;  
-  
-    background:  
-        rgba(255,255,255,0.96);  
-  
-    padding: 35px 25px;  
-  
-    border-radius: 30px;  
-  
-    box-shadow:  
-        0 20px 50px  
-        rgba(80,20,40,0.25);  
-  
-    animation: pinAppear 0.8s ease;  
-}  
-  
-@keyframes pinAppear {  
-  
-    from {  
-  
-        opacity: 0;  
-  
-        transform:  
-            scale(0.8)  
-            translateY(20px);  
-    }  
-  
-    to {  
-  
-        opacity: 1;  
-  
-        transform:  
-            scale(1)  
-            translateY(0);  
-    }  
-}  
-  
-.pin-heart {  
-  
-    font-size: 55px;  
-  
-    margin-bottom: 10px;  
-}  
-  
-.pin-box h1 {  
-  
-    color: #8e2349;  
-  
-    margin: 10px 0;  
-}  
-  
-.pin-box p {  
-  
-    color: #6d3043;  
-  
-    font-size: 17px;  
-  
-    line-height: 1.6;  
-}  
-  
-.pin-question {  
-  
-    margin-top: 25px;  
-  
-    font-weight: bold;  
-}  
-  
-#pinInput {  
-  
-    width: 180px;  
-  
-    padding: 15px;  
-  
-    border:  
-        2px solid  
-        #e7a1b7;  
-  
-    border-radius: 15px;  
-  
-    text-align: center;  
-  
-    font-size: 25px;  
-  
-    letter-spacing: 10px;  
-  
-    outline: none;  
-  
-    color: #8e2349;  
-}  
-  
-#pinInput:focus {  
-  
-    border-color:  
-        #a52751;  
-}  
-  
-.pin-box button {  
-  
-    display: block;  
-  
-    width: 100%;  
-  
-    margin: 20px auto 10px;  
-  
-    background:  
-        linear-gradient(  
-            135deg,  
-            #e72f69,  
-            #ff5c91  
-        );  
-  
-    color: white;  
-  
-    box-shadow:  
-        0 8px 22px  
-        rgba(231,47,105,0.3);  
-}  
-  
-#pinError {  
-  
-    min-height: 25px;  
-  
-    color: #d52761;  
-  
-    font-weight: bold;  
-  
-    margin-top: 10px;  
-}  
-  
-  
-/* =========================  
-   FLOATING HEARTS  
-========================= */  
-  
-.heart {  
-  
-    position: fixed;  
-  
-    bottom: -40px;  
-  
-    z-index: 0;  
-  
-    pointer-events: none;  
-  
-    animation:  
-        floatHeart  
-        8s linear forwards;  
-}  
-  
-@keyframes floatHeart {  
-  
-    0% {  
-  
-        transform:  
-            translateY(0)  
-            rotate(0deg);  
-  
-        opacity: 0;  
-    }  
-  
-    15% {  
-  
-        opacity: 0.8;  
-    }  
-  
-    100% {  
-  
-        transform:  
-            translateY(-110vh)  
-            rotate(360deg);  
-  
-        opacity: 0;  
-    }  
-}  
-  
-  
-/* =========================  
-   MAIN  
-========================= */  
-  
-.container {  
-  
-    position: relative;  
-  
-    z-index: 2;  
-  
-    width: 100%;  
-  
-    max-width: 720px;  
-  
-    margin: auto;  
-  
-    padding:  
-        20px  
-        15px  
-        70px;  
-}  
-  
-  
-/* =========================  
-   HERO  
-========================= */  
-  
-.hero {  
-  
-    text-align: center;  
-  
-    padding:  
-        55px  
-        10px  
-        30px;  
-  
-    animation:  
-        fadeDown  
-        1.5s ease;  
-}  
-  
-.hero h1 {  
-  
-    font-size: 42px;  
-  
-    color: #8e2349;  
-  
-    margin: 10px 0;  
-}  
-  
-.hero .subtitle {  
-  
-    font-size: 20px;  
-  
-    font-style: italic;  
-}  
-  
-.heart-big {  
-  
-    font-size: 50px;  
-  
-    animation:  
-        heartbeat  
-        1.5s infinite;  
-}  
-  
-@keyframes heartbeat {  
-  
-    0%, 100% {  
-  
-        transform:  
-            scale(1);  
-    }  
-  
-    50% {  
-  
-        transform:  
-            scale(1.18);  
-    }  
-}  
-  
-@keyframes fadeDown {  
-  
-    from {  
-  
-        opacity: 0;  
-  
-        transform:  
-            translateY(-30px);  
-    }  
-  
-    to {  
-  
-        opacity: 1;  
-  
-        transform:  
-            translateY(0);  
-    }  
-}  
-  
-  
-/* =========================  
-   CARDS  
-========================= */  
-  
-.card {  
-  
-    background:  
-        rgba(255,255,255,0.95);  
-  
-    border-radius: 28px;  
-  
-    padding:  
-        28px  
-        22px;  
-  
-    margin: 25px 0;  
-  
-    box-shadow:  
-        0 15px 40px  
-        rgba(80,20,40,0.18);  
-  
-    animation:  
-        fadeUp  
-        1s ease;  
-}  
-  
-@keyframes fadeUp {  
-  
-    from {  
-  
-        opacity: 0;  
-  
-        transform:  
-            translateY(25px);  
-    }  
-  
-    to {  
-  
-        opacity: 1;  
-  
-        transform:  
-            translateY(0);  
-    }  
-}  
-  
-.card h2 {  
-  
-    text-align: center;  
-  
-    color: #a52751;  
-  
-    font-size: 28px;  
-  
-    margin-top: 5px;  
-}  
-  
-.card p {  
-  
-    font-size: 18px;  
-  
-    line-height: 1.85;  
-  
-    margin: 20px 0;  
-}  
-  
-  
-/* =========================  
-   MUSIC PLAYER  
-========================= */  
-  
-.music-player {  
-  
-    background:  
-        linear-gradient(  
-            135deg,  
-            rgba(165,39,81,0.95),  
-            rgba(231,47,105,0.95)  
-        );  
-  
-    color: white;  
-  
-    border-radius: 24px;  
-  
-    padding: 22px;  
-  
-    margin-top: 25px;  
-  
-    box-shadow:  
-        0 10px 30px  
-        rgba(165,39,81,0.3);  
-  
-    animation:  
-        musicGlow  
-        2.5s infinite alternate;  
-}  
-  
-@keyframes musicGlow {  
-  
-    from {  
-  
-        box-shadow:  
-            0 8px 25px  
-            rgba(165,39,81,0.25);  
-    }  
-  
-    to {  
-  
-        box-shadow:  
-            0 12px 35px  
-            rgba(165,39,81,0.5);  
-    }  
-}  
-  
-.music-icon {  
-  
-    font-size: 42px;  
-  
-    margin-bottom: 5px;  
-}  
-  
-.music-title {  
-  
-    font-size: 23px;  
-  
-    font-weight: bold;  
-}  
-  
-.music-subtitle {  
-  
-    font-size: 15px;  
-  
-    opacity: 0.9;  
-  
-    margin:  
-        5px  
-        0  
-        15px;  
-}  
-  
-.music-button {  
-  
-    background: white;  
-  
-    color: #a52751;  
-  
-    border: none;  
-  
-    border-radius: 50px;  
-  
-    padding:  
-        13px  
-        25px;  
-  
-    font-size: 16px;  
-  
-    font-family:  
-        Georgia,  
-        "Times New Roman",  
-        serif;  
-  
-    cursor: pointer;  
-  
-    transition:  
-        0.25s ease;  
-}  
-  
-.music-button:hover {  
-  
-    transform:  
-        scale(1.05);  
-}  
-  
-.music-button:active {  
-  
-    transform:  
-        scale(0.94);  
-}  
-  
-  
-/* =========================  
-   PHOTOS  
-========================= */  
-  
-.gallery {  
-  
-    display: flex;  
-  
-    flex-direction: column;  
-  
-    gap: 22px;  
-}  
-  
-.photo-frame {  
-  
-    overflow: hidden;  
-  
-    border-radius: 22px;  
-  
-    box-shadow:  
-        0 8px 25px  
-        rgba(0,0,0,0.2);  
-}  
-  
-.photo-frame img {  
-  
-    display: block;  
-  
-    width: 100%;  
-  
-    transition:  
-        transform  
-        0.7s ease;  
-}  
-  
-.photo-frame:hover img {  
-  
-    transform:  
-        scale(1.05);  
-}  
-  
-  
-/* =========================  
-   VIDEO  
-========================= */  
-  
-video {  
-  
-    display: block;  
-  
-    width: 100%;  
-  
-    border-radius: 22px;  
-  
-    box-shadow:  
-        0 8px 25px  
-        rgba(0,0,0,0.2);  
-}  
-  
-  
-/* =========================  
-   BUTTONS  
-========================= */  
-  
-.buttons {  
-  
-    text-align: center;  
-  
-    margin-top: 25px;  
-}  
-  
-button {  
-  
-    border: none;  
-  
-    border-radius: 50px;  
-  
-    padding:  
-        16px  
-        24px;  
-  
-    margin: 8px;  
-  
-    font-size: 17px;  
-  
-    font-family:  
-        Georgia,  
-        "Times New Roman",  
-        serif;  
-  
-    cursor: pointer;  
-  
-    transition:  
-        all  
-        0.25s ease;  
-}  
-  
-button:active {  
-  
-    transform:  
-        scale(0.92);  
-}  
-  
-.yes {  
-  
-    background:  
-        linear-gradient(  
-            135deg,  
-            #e72f69,  
-            #ff5c91  
-        );  
-  
-    color: white;  
-  
-    box-shadow:  
-        0 8px 22px  
-        rgba(231,47,105,0.35);  
-}  
-  
-.yes:hover {  
-  
-    transform:  
-        scale(1.06);  
-}  
-  
-.no {  
-  
-    background: #eeeeee;  
-  
-    color: #555;  
-}  
-  
-  
-/* =========================  
-   RESPONSE  
-========================= */  
-  
-#response {  
-  
-    display: none;  
-  
-    margin-top: 25px;  
-  
-    padding: 22px;  
-  
-    border-radius: 20px;  
-  
-    background: #fff0f5;  
-  
-    color: #8c2349;  
-  
-    font-size: 21px;  
-  
-    font-weight: bold;  
-  
-    animation:  
-        popIn  
-        0.7s ease;  
-}  
-  
-@keyframes popIn {  
-  
-    0% {  
-  
-        transform:  
-            scale(0.5);  
-  
-        opacity: 0;  
-    }  
-  
-    70% {  
-  
-        transform:  
-            scale(1.08);  
-    }  
-  
-    100% {  
-  
-        transform:  
-            scale(1);  
-  
-        opacity: 1;  
-    }  
-}  
-  
-  
-/* =========================  
-   YES SURPRISE  
-========================= */  
-  
-#surprise {  
-  
-    display: none;  
-  
-    text-align: center;  
-  
-    animation:  
-        popIn  
-        1s ease;  
-}  
-  
-#surprise h2 {  
-  
-    font-size: 34px;  
-  
-    color: #d52761;  
-}  
-  
-#surprise p {  
-  
-    text-align: center;  
-}  
-  
-  
-/* =========================  
-   SIGNATURE  
-========================= */  
-  
-.signature {  
-  
-    text-align: center;  
-  
-    font-size: 24px;  
-  
-    font-style: italic;  
-  
-    color: #a52751;  
-  
-    line-height: 1.7;  
-}  
-  
-  
-/* =========================  
-   MOBILE  
-========================= */  
-  
-@media (max-width: 480px) {  
-  
-    .hero h1 {  
-  
-        font-size: 34px;  
-    }  
-  
-    .card {  
-  
-        padding:  
-            23px  
-            18px;  
-    }  
-  
-    .card p {  
-  
-        font-size: 17px;  
-  
-        line-height: 1.75;  
-    }  
-  
-    button {  
-  
-        width: 90%;  
-  
-        margin:  
-            8px  
-            auto;  
-    }  
-  
-}  
-  
-</style>  </head>  <body style="overflow:hidden;">  <!-- =========================  
-     PIN SCREEN  
-========================= -->  <div id="pinScreen">  <div class="pin-box">  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="pin-heart">  
-        🔐❤️  
-    </div>  
+<title>For Hinata ❤️</title>
 
-    <h1>  
-        For Hinata 🥹  
-    </h1>  
+<style>
+* {
+    box-sizing: border-box;
+}
 
-    <p>  
-        This little surprise is just for you. ❤️  
-    </p>  
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe6ee, #fff5f8);
+    color: #4a2630;
+    line-height: 1.7;
+}
 
-    <p class="pin-question">  
-        Enter the secret PIN  
-    </p>  
+.hidden {
+    display: none !important;
+}
 
-    <input  
-        type="password"  
-        id="pinInput"  
-        inputmode="numeric"  
-        maxlength="4"  
-        placeholder="••••"  
-    >  
+/* PIN SCREEN */
+#pinScreen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-    <button onclick="unlockPage()">  
-        Open My Letter ❤️  
-    </button>  
+.pin-box {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+}
 
-    <div id="pinError"></div>  
+.pin-heart {
+    font-size: 55px;
+}
+
+.pin-box h1 {
+    color: #d6336c;
+}
+
+.pin-question {
+    font-weight: bold;
+}
+
+#pinInput {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #f3a6bd;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 8px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.pin-box button,
+.music-button,
+.buttons button {
+    border: none;
+    border-radius: 25px;
+    padding: 14px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pin-box button {
+    width: 100%;
+    background: #d6336c;
+    color: white;
+}
+
+#pinError {
+    color: #d00000;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+/* MAIN PAGE */
+#mainPage {
+    display: none;
+    padding-bottom: 50px;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+.heart-big {
+    font-size: 75px;
+}
+
+.hero h1 {
+    color: #d6336c;
+    font-size: 32px;
+}
+
+.subtitle {
+    max-width: 600px;
+    margin: auto;
+    font-size: 17px;
+}
+
+/* CARDS */
+.card {
+    width: 92%;
+    max-width: 800px;
+    margin: 25px auto;
+    background: rgba(255,255,255,0.95);
+    padding: 28px 22px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    color: #d6336c;
+    text-align: center;
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+/* MUSIC */
+.music-player {
+    max-width: 450px;
+    margin: 30px auto 0;
+    padding: 25px;
+    background: #fff0f5;
+    border-radius: 20px;
+}
+
+.music-icon {
+    font-size: 40px;
+}
+
+.music-title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #d6336c;
+}
+
+.music-subtitle {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.music-button {
+    background: #d6336c;
+    color: white;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.photo-frame {
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.photo-frame img {
+    width: 100%;
+    display: block;
+}
+
+/* VIDEO */
+video {
+    width: 100%;
+    max-height: 600px;
+    border-radius: 18px;
+    display: block;
+    margin-top: 20px;
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 450px;
+    margin: 30px auto 10px;
+}
+
+.yes {
+    background: #e6396f;
+    color: white;
+}
+
+.no {
+    background: #ffe0e9;
+    color: #b51f4d;
+}
+
+#response {
+    text-align: center;
+    font-weight: bold;
+    color: #d6336c;
+    margin-top: 20px;
+}
+
+/* SIGNATURE */
+.signature {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #d6336c;
+    margin-top: 30px;
+}
+
+/* SURPRISE */
+#surprise {
+    display: none;
+    text-align: center;
+    animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (min-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PIN SCREEN -->
+<div id="pinScreen">
+
+    <div class="pin-box">
+
+        <div class="pin-heart">
+            🔐❤️
+        </div>
+
+        <h1>
+            For Hinata 🥹
+        </h1>
+
+        <p>
+            This little surprise is just for you. ❤️
+        </p>
+
+        <p class="pin-question">
+            Enter the secret PIN
+        </p>
+
+        <input
+            type="password"
+            id="pinInput"
+            inputmode="numeric"
+            maxlength="4"
+            placeholder="••••"
+        >
+
+        <button onclick="unlockPage()">
+            Open My Letter ❤️
+        </button>
+
+        <div id="pinError"></div>
+
+    </div>
 
 </div>
 
-</div>  <!-- =========================  
-     MAIN WEBSITE  
-========================= -->  <div class="container">  <!-- INTRO -->  
 
-<section class="hero">  
-
-    <div class="heart-big">  
-        ❤️  
-    </div>  
-
-    <h1>  
-        For My Beautiful Hinata  
-    </h1>  
-
-    <p class="subtitle">  
-        There's something I really need you to hear from my heart... 🥹  
-    </p>  
-
-
-    <!-- MUSIC -->  
-
-    <div class="music-player">  
-
-        <div class="music-icon">  
-            🎵  
-        </div>  
-
-        <div class="music-title">  
-            Our Little Song ❤️  
-        </div>  
-
-        <div class="music-subtitle">  
-            A little something to listen to while you read...  
-        </div>  
-
-        <audio  
-            id="ourSong"  
-            loop  
-        >  
-
-            <source  
-                src="media/apology/song.mp3"  
-                type="audio/mpeg"  
-            >  
-
-            Your browser does not support audio.  
-
-        </audio>  
-
-        <button  
-            class="music-button"  
-            onclick="toggleMusic()"  
-        >  
-            🎵 Play our song  
-        </button>  
-
-    </div>  
-
-</section>  
-
-
-<!-- APOLOGY -->  
-
-<div class="card">  
-
-    <h2>  
-        My Beautiful Hinata 🥹❤️  
-    </h2>  
-
-    <p>  
-        My love, I honestly don't know if words can completely explain  
-        how sorry I am, but I still want to try. I wanted to make this  
-        little place for you because there are some things I really  
-        want you to hear from my heart.  
-    </p>  
-
-    <p>  
-        First of all, I'm sorry. Truly, deeply, and genuinely sorry. 🥺❤️  
-        I know I hurt you, and I know that what I did wasn't right.  
-        I lied to you, and I understand that I gave you a reason to  
-        question my honesty and my intentions. You trusted me, and I  
-        should have protected that trust instead of doing something  
-        that could hurt you.  
-    </p>  
-
-    <p>  
-        I won't make excuses for what I did. I won't try to make it  
-        seem smaller than it was, because I know it wasn't small to you.  
-        Your feelings matter to me, and knowing that I caused you pain  
-        honestly hurts me too.  
-    </p>  
-
-    <p>  
-        I already told you the truth because you deserved the truth.  
-        But even though I eventually told you everything, I know that  
-        doesn't erase the fact that I wasn't honest from the beginning.  
-        And for that, my love, I'm genuinely sorry.  
-    </p>  
-
-    <p>  
-        I wish I could go back to that moment and make a different  
-        choice. I wish I could erase the disappointment from your face  
-        and the hurt from your heart. But I know life doesn't work  
-        that way. We can't change yesterday, but we can decide what we do  
-        from today onwards.  
-    </p>  
-
-    <p>  
-        And I want you to know something, Hinata...  
-        I don't want to lose you. 🥹❤️  
-    </p>  
-
-    <p>  
-        You have become such an important part of my life. It's the  
-        little things about you that stay in my mind — our conversations,  
-        our jokes, the random moments, the times we laugh over things  
-        that probably wouldn't even make sense to anyone else.  
-    </p>  
-
-    <p>  
-        I love the memories we've created together, and I want there  
-        to be so many more of them. More laughter. More stupid jokes.  
-        More late conversations. More pictures. More moments where  
-        we're just together and everything else doesn't matter.  
-    </p>  
-
-    <p>  
-        I'm not perfect, Hinata. I know that.  
-        I've made mistakes, and I'll probably make mistakes again  
-        because I'm human. But I don't want to use that as an excuse.  
-        I want to learn. I want to grow. I want to become someone  
-        whose actions make you feel safe, loved, respected and valued.  
-    </p>  
-
-    <p>  
-        I don't expect you to forget everything overnight.  
-        I don't expect one apology to suddenly make everything okay.  
-        If you're hurt, take your time. If you're angry, I'll understand.  
-        If you need space, I'll respect that.  
-    </p>  
-
-    <p>  
-        But even through all of that, I want you to know that I'm here.  
-        And I mean that sincerely.  
-    </p>  
-
-    <p>  
-        I want to be by your side — not only when everything is perfect,  
-        but also when life gets difficult. I want to be there when  
-        you're happy, when you're stressed, when you're celebrating,  
-        when you're doubting yourself, and even on the days when you  
-        don't feel like talking.  
-    </p>  
-
-    <p>  
-        I want to be someone you can look beside you and know,  
-        "He's still here." ❤️  
-    </p>  
-
-    <p>  
-        I want to stand beside you through the good days and the bad  
-        ones. I want to support your dreams, celebrate your victories,  
-        encourage you when things aren't going your way, and remind you  
-        of how amazing you are whenever you forget.  
-    </p>  
-
-    <p>  
-        I can't promise that I'll never make another mistake.  
-        But I can promise that I'll keep trying to become better.  
-        I can promise to be more honest, more thoughtful and more  
-        intentional with your heart.  
-    </p>  
-
-    <p>  
-        Because your heart isn't something I want to take for granted.  
-        And your love isn't something I want to treat casually.  
-    </p>  
-
-    <p>  
-        So, Hinata... if there is still a little space in your heart  
-        for me, I would love the opportunity to earn your trust again.  
-        Not just with words, but with my actions.  
-    </p>  
-
-    <p>  
-        Thank you for every beautiful moment you've given me.  
-        Thank you for the smiles, the laughter, the memories and  
-        even the lessons. You've made my life more beautiful simply  
-        by being a part of it.  
-    </p>  
-
-    <p>  
-        I'm sorry for hurting you, my love.  
-        I'm sorry for disappointing you.  
-        And I'm sorry for giving you a reason to doubt me.  
-    </p>  
-
-    <p>  
-        But most importantly, I want you to know that I care about you  
-        deeply, and I'm willing to be by your side — today, tomorrow,  
-        and through whatever life decides to throw at us. 🥹❤️  
-    </p>  
-
-    <p>  
-        I don't know exactly what the future holds for us,  
-        but if you'll let me, I'd love to keep walking through it  
-        with you.  
-    </p>  
-
-
-    <h2>  
-        So, my beautiful Hinata... 🥹❤️  
-    </h2>  
-
-    <p style="text-align:center;">  
-        Can you forgive your very imperfect boy? 😭❤️  
-    </p>  
-
-
-    <div class="buttons">  
-
-        <button  
-            class="yes"  
-            onclick="forgive()"  
-        >  
-            YES, I FORGIVE YOU ❤️  
-        </button>  
-
-        <button  
-            class="no"  
-            onclick="notYet()"  
-        >  
-            I NEED TIME 🥺  
-        </button>  
-
-    </div>  
-
-
-    <div id="response"></div>  
-
-</div>  
-
-
-<!-- MEMORIES -->  
-
-<div class="card">  
-
-    <h2>  
-        Our Little Memories ❤️  
-    </h2>  
-
-    <p style="text-align:center;">  
-        A few moments that remind me why you're so special to me. 🥹  
-    </p>  
-
-
-    <div class="gallery">  
-
-        <div class="photo-frame">  
-
-            <img  
-                src="media/apology/photo1.jpg"  
-                alt="Our memory"  
-            >  
-
-        </div>  
-
-
-        <div class="photo-frame">  
-
-            <img  
-                src="media/apology/photo2.jpg"  
-                alt="Our memory"  
-            >  
-
-        </div>  
-
-
-        <div class="photo-frame">  
-
-            <img  
-                src="media/apology/photo3.jpg"  
-                alt="Our memory"  
-            >  
-
-        </div>  
-
-    </div>  
-
-</div>  
-
-
-<!-- VIDEO -->  
-
-<div class="card">  
-
-    <h2>  
-        One More Thing For You 🥹❤️  
-    </h2>  
-
-    <p style="text-align:center;">  
-        I hope this little memory makes you smile.  
-    </p>  
-
-
-    <video  
-        controls  
-        playsinline  
-    >  
-
-        <source  
-            src="media/apology/video1.mp4"  
-            type="video/mp4"  
-        >  
-
-        Your browser does not support video.  
-
-    </video>  
-
-</div>  
-
-
-<!-- FINAL MESSAGE -->  
-
-<div class="card">  
-
-    <h2>  
-        Whatever Happens... ❤️  
-    </h2>  
-
-    <p style="text-align:center;">  
-        I just want you to know that I'm grateful that I met you.  
-    </p>  
-
-    <p style="text-align:center;">  
-        I'm sorry for the mistake I made.  
-        I'm sorry for the hurt I caused.  
-        And I'm willing to do the work to become better.  
-    </p>  
-
-    <p style="text-align:center;">  
-        If you let me, I'll keep choosing you,  
-        keep supporting you, keep making you laugh,  
-        and keep being there for you.  
-    </p>  
-
-    <p style="text-align:center;">  
-        Through the good days.  
-        Through the difficult days.  
-        Through the moments when everything feels perfect  
-        and the moments when it doesn't.  
-    </p>  
-
-    <p style="text-align:center;">  
-        I'll be right there beside you. 🥹❤️  
-    </p>  
-
-
-    <div class="signature">  
-
-        With all my heart,<br>  
-
-        Your imperfect boy ❤️  
-
-    </div>  
-
-</div>  
-
-
-<!-- YES SURPRISE -->  
-
-<div  
-    class="card"  
-    id="surprise"  
->  
-
-    <h2>  
-        You Said YES 😭❤️  
-    </h2>  
-
-    <p>  
-        Hinata... you have no idea how much that means to me. 🥹  
-    </p>  
-
-    <p>  
-        Thank you for giving me another chance.  
-    </p>  
-
-    <p>  
-        I won't take it for granted.  
-    </p>  
-
-    <p>  
-        Now come here and give your idiot a hug. 😭😂❤️  
-    </p>  
-
-    <div style="font-size:55px;">  
-        🥹❤️🫂❤️🥹  
-    </div>  
+<!-- MAIN PAGE -->
+<div id="mainPage">
+
+    <!-- INTRO -->
+    <section class="hero">
+
+        <div class="heart-big">
+            ❤️
+        </div>
+
+        <h1>
+            For My Beautiful Hinata
+        </h1>
+
+        <p class="subtitle">
+            There's something I really need you to hear from my heart... 🥹
+        </p>
+
+
+        <!-- MUSIC -->
+        <div class="music-player">
+
+            <div class="music-icon">
+                🎵
+            </div>
+
+            <div class="music-title">
+                Our Little Song ❤️
+            </div>
+
+            <div class="music-subtitle">
+                A little something to listen to while you read...
+            </div>
+
+            <audio id="ourSong" loop>
+                <source
+                    src="song.mp3"
+                    type="audio/mpeg"
+                >
+                Your browser does not support audio.
+            </audio>
+
+            <button
+                class="music-button"
+                onclick="toggleMusic()"
+            >
+                🎵 Play our song
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- APOLOGY -->
+    <div class="card">
+
+        <h2>
+            My Beautiful Hinata 🥹❤️
+        </h2>
+
+        <p>
+            My love, I honestly don't know if words can completely explain
+            how sorry I am, but I still want to try. I wanted to make this
+            little place for you because there are some things I really
+            want you to hear from my heart.
+        </p>
+
+        <p>
+            First of all, I'm sorry. Truly, deeply, and genuinely sorry. 🥺❤️
+            I know I hurt you, and I know that what I did wasn't right.
+            I lied to you, and I understand that I gave you a reason to
+            question my honesty and my intentions. You trusted me, and I
+            should have protected that trust instead of doing something
+            that could hurt you.
+        </p>
+
+        <p>
+            I won't make excuses for what I did. I won't try to make it
+            seem smaller than it was, because I know it wasn't small to you.
+            Your feelings matter to me, and knowing that I caused you pain
+            honestly hurts me too.
+        </p>
+
+        <p>
+            I already told you the truth because you deserved the truth.
+            But even though I eventually told you everything, I know that
+            doesn't erase the fact that I wasn't honest from the beginning.
+            And for that, my love, I'm genuinely sorry.
+        </p>
+
+        <p>
+            I wish I could go back to that moment and make a different
+            choice. I wish I could erase the disappointment from your face
+            and the hurt from your heart. But I know life doesn't work
+            that way. We can't change yesterday, but we can decide what we do
+            from today onwards.
+        </p>
+
+        <p>
+            And I want you to know something, Hinata...
+            I don't want to lose you. 🥹❤️
+        </p>
+
+        <p>
+            You have become such an important part of my life. It's the
+            little things about you that stay in my mind — our conversations,
+            our jokes, the random moments, the times we laugh over things
+            that probably wouldn't even make sense to anyone else.
+        </p>
+
+        <p>
+            I love the memories we've created together, and I want there
+            to be so many more of them. More laughter. More stupid jokes.
+            More late conversations. More pictures. More moments where
+            we're just together and everything else doesn't matter.
+        </p>
+
+        <p>
+            I'm not perfect, Hinata. I know that.
+            I've made mistakes, and I'll probably make mistakes again
+            because I'm human. But I don't want to use that as an excuse.
+            I want to learn. I want to grow. I want to become someone
+            whose actions make you feel safe, loved, respected and valued.
+        </p>
+
+        <p>
+            I don't expect you to forget everything overnight.
+            I don't expect one apology to suddenly make everything okay.
+            If you're hurt, take your time. If you're angry, I'll understand.
+            If you need space, I'll respect that.
+        </p>
+
+        <p>
+            But even through all of that, I want you to know that I'm here.
+            And I mean that sincerely.
+        </p>
+
+        <p>
+            I want to be by your side — not only when everything is perfect,
+            but also when life gets difficult. I want to be there when
+            you're happy, when you're stressed, when you're celebrating,
+            when you're doubting yourself, and even on the days when you
+            don't feel like talking.
+        </p>
+
+        <p>
+            I want to be someone you can look beside you and know,
+            "He's still here." ❤️
+        </p>
+
+        <p>
+            I want to stand beside you through the good days and the bad
+            ones. I want to support your dreams, celebrate your victories,
+            encourage you when things aren't going your way, and remind you
+            of how amazing you are whenever you forget.
+        </p>
+
+        <p>
+            I can't promise that I'll never make another mistake.
+            But I can promise that I'll keep trying to become better.
+            I can promise to be more honest, more thoughtful and more
+            intentional with your heart.
+        </p>
+
+        <p>
+            Because your heart isn't something I want to take for granted.
+            And your love isn't something I want to treat casually.
+        </p>
+
+        <p>
+            So, Hinata... if there is still a little space in your heart
+            for me, I would love the opportunity to earn your trust again.
+            Not just with words, but with my actions.
+        </p>
+
+        <p>
+            Thank you for every beautiful moment you've given me.
+            Thank you for the smiles, the laughter, the memories and
+            even the lessons. You've made my life more beautiful simply
+            by being a part of it.
+        </p>
+
+        <p>
+            I'm sorry for hurting you, my love.
+            I'm sorry for disappointing you.
+            And I'm sorry for giving you a reason to doubt me.
+        </p>
+
+        <p>
+            But most importantly, I want you to know that I care about you
+            deeply, and I'm willing to be by your side — today, tomorrow,
+            and through whatever life decides to throw at us. 🥹❤️
+        </p>
+
+        <p>
+            I don't know exactly what the future holds for us,
+            but if you'll let me, I'd love to keep walking through it
+            with you.
+        </p>
+
+
+        <h2>
+            So, my beautiful Hinata... 🥹❤️
+        </h2>
+
+        <p style="text-align:center;">
+            Can you forgive your very imperfect boy? 😭❤️
+        </p>
+
+
+        <div class="buttons">
+
+            <button
+                class="yes"
+                onclick="forgive()"
+            >
+                YES, I FORGIVE YOU ❤️
+            </button>
+
+            <button
+                class="no"
+                onclick="notYet()"
+            >
+                I NEED TIME 🥺
+            </button>
+
+        </div>
+
+        <div id="response"></div>
+
+    </div>
+
+
+    <!-- MEMORIES -->
+    <div class="card">
+
+        <h2>
+            Our Little Memories ❤️
+        </h2>
+
+        <p style="text-align:center;">
+            A few moments that remind me why you're so special to me. 🥹
+        </p>
+
+
+        <div class="gallery">
+
+            <div class="photo-frame">
+                <img
+                    src="photo1.jpg"
+                    alt="Our memory"
+                >
+            </div>
+
+            <div class="photo-frame">
+                <img
+                    src="photo2.jpg"
+                    alt="Our memory"
+                >
+            </div>
+
+            <div class="photo-frame">
+                <img
+                    src="photo3.jpg"
+                    alt="Our memory"
+                >
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- VIDEO -->
+    <div class="card">
+
+        <h2>
+            One More Thing For You 🥹❤️
+        </h2>
+
+        <p style="text-align:center;">
+            I hope this little memory makes you smile.
+        </p>
+
+        <video
+            controls
+            playsinline
+        >
+
+            <source
+                src="video1.mp4"
+                type="video/mp4"
+            >
+
+            Your browser does not support video.
+
+        </video>
+
+    </div>
+
+
+    <!-- FINAL MESSAGE -->
+    <div class="card">
+
+        <h2>
+            Whatever Happens... ❤️
+        </h2>
+
+        <p style="text-align:center;">
+            I just want you to know that I'm grateful that I met you.
+        </p>
+
+        <p style="text-align:center;">
+            I'm sorry for the mistake I made.
+            I'm sorry for the hurt I caused.
+            And I'm willing to do the work to become better.
+        </p>
+
+        <p style="text-align:center;">
+            If you let me, I'll keep choosing you,
+            keep supporting you, keep making you laugh,
+            and keep being there for you.
+        </p>
+
+        <p style="text-align:center;">
+            Through the good days.
+            Through the difficult days.
+            Through the moments when everything feels perfect
+            and the moments when it doesn't.
+        </p>
+
+        <p style="text-align:center;">
+            I'll be right there beside you. 🥹❤️
+        </p>
+
+        <div class="signature">
+            With all my heart,<br>
+            Your imperfect boy ❤️
+        </div>
+
+    </div>
+
+
+    <!-- YES SURPRISE -->
+    <div
+        class="card"
+        id="surprise"
+    >
+
+        <h2>
+            You Said YES 😭❤️
+        </h2>
+
+        <p>
+            Hinata... you have no idea how much that means to me. 🥹
+        </p>
+
+        <p>
+            Thank you for giving me another chance.
+        </p>
+
+        <p>
+            I won't take it for granted.
+        </p>
+
+        <p>
+            Now come here and give your idiot a hug. 😭😂❤️
+        </p>
+
+        <div style="font-size:55px;">
+            🥹❤️🫂❤️🥹
+        </div>
+
+    </div>
 
 </div>
 
-</div>  <script>  
-  
-  
-/* ============================  
-   PIN LOCK  
-============================ */  
-  
-function unlockPage() {  
-  
-    const pin =  
-        document.getElementById(  
-            "pinInput"  
-        ).value;  
-  
-    const error =  
-        document.getElementById(  
-            "pinError"  
-        );  
-  
-  
-    if (pin === "2817") {  
-  
-        document.getElementById(  
-            "pinScreen"  
-        ).style.display = "none";  
-  
-        document.body.style.overflow =  
-            "auto";  
-  
-        createHeart();  
-  
-        createHeart();  
-  
-        createHeart();  
-  
-    }  
-  
-    else {  
-  
-        error.innerHTML =  
-            "🥺 That's not the PIN, my love. Try again ❤️";  
-  
-        document.getElementById(  
-            "pinInput"  
-        ).value = "";  
-  
-    }  
-  
-}  
-  
-  
-/* Allow Enter key */  
-  
-document  
-    .getElementById("pinInput")  
-    .addEventListener(  
-        "keydown",  
-        function(event) {  
-  
-            if (event.key === "Enter") {  
-  
-                unlockPage();  
-  
-            }  
-  
-        }  
-    );  
-  
-  
-/* ============================  
-   FLOATING HEARTS  
-============================ */  
-  
-function createHeart() {  
-  
-    const heart =  
-        document.createElement("div");  
-  
-    const hearts = [  
-        "❤️",  
-        "💕",  
-        "💗",  
-        "💖",  
-        "🥹"  
-    ];  
-  
-    heart.className =  
-        "heart";  
-  
-    heart.innerHTML =  
-        hearts[  
-            Math.floor(  
-                Math.random()  
-                * hearts.length  
-            )  
-        ];  
-  
-    heart.style.left =  
-        Math.random() * 100 + "%";  
-  
-    heart.style.fontSize =  
-        (  
-            16 +  
-            Math.random() * 25  
-        ) + "px";  
-  
-    heart.style.animationDuration =  
-        (  
-            5 +  
-            Math.random() * 5  
-        ) + "s";  
-  
-    document.body.appendChild(  
-        heart  
-    );  
-  
-    setTimeout(  
-        function() {  
-  
-            heart.remove();  
-  
-        },  
-        10000  
-    );  
-  
-}  
-  
-setInterval(  
-    createHeart,  
-    700  
-);  
-  
-  
-/* ============================  
-   MUSIC  
-============================ */  
-  
-function toggleMusic() {  
-  
-    const song =  
-        document.getElementById(  
-            "ourSong"  
-        );  
-  
-    const button =  
-        document.querySelector(  
-            ".music-button"  
-        );  
-  
-  
-    if (song.paused) {  
-  
-        song.play()  
-  
-        .then(  
-            function() {  
-  
-                button.innerHTML =  
-                    "⏸️ Pause our song";  
-  
-                document.body.classList.add(  
-                    "music-playing"  
-                );  
-  
-            }  
-        )  
-  
-        .catch(  
-            function(error) {  
-  
-                console.log(  
-                    "Music could not start:",  
-                    error  
-                );  
-  
-            }  
-        );  
-  
-    }  
-  
-    else {  
-  
-        song.pause();  
-  
-        button.innerHTML =  
-            "🎵 Play our song";  
-  
-        document.body.classList.remove(  
-            "music-playing"  
-        );  
-  
-    }  
-  
-}  
-  
-  
-/* ============================  
-   YES BUTTON  
-============================ */  
-  
-async function forgive() {  
-  
-    const response =  
-        document.getElementById(  
-            "response"  
-        );  
-  
-    const surprise =  
-        document.getElementById(  
-            "surprise"  
-        );  
-  
-  
-    response.style.display =  
-        "block";  
-  
-    response.innerHTML =  
-        "😭❤️ Thank you, Hinata. Sending you a little surprise...";  
-  
-  
-    /*  
-       FORM SUBMIT NOTIFICATION  
-    */  
-  
-    try {  
-  
-        await fetch(  
-            "https://formsubmit.co/ajax/8639202385",  
-            {  
-  
-                method: "POST",  
-  
-                headers: {  
-  
-                    "Content-Type":  
-                        "application/json",  
-  
-                    "Accept":  
-                        "application/json"  
-  
-                },  
-  
-                body: JSON.stringify({  
-  
-                    message:  
-                        "❤️ Hinata clicked YES on the apology website! 🥹",  
-  
-                    subject:  
-                        "Hinata clicked YES ❤️"  
-  
-                })  
-  
-            }  
-        );  
-  
-    }  
-  
-    catch (error) {  
-  
-        console.log(  
-            "Notification request failed.",  
-            error  
-        );  
-  
-    }  
-  
-  
-    /* Celebration */  
-  
-    for (  
-        let i = 0;  
-        i < 35;  
-        i++  
-    ) {  
-  
-        setTimeout(  
-            function() {  
-  
-                createHeart();  
-  
-            },  
-            i * 80  
-        );  
-  
-    }  
-  
-  
-    /* Reveal surprise */  
-  
-    setTimeout(  
-        function() {  
-  
-            surprise.style.display =  
-                "block";  
-  
-            surprise.scrollIntoView({  
-                behavior: "smooth"  
-            });  
-  
-            response.innerHTML =  
-                "😭❤️ Thank you, Hinata. You have no idea how much that means to me.";  
-  
-        },  
-        1200  
-    );  
-  
-}  
-  
-  
-/* ============================  
-   I NEED TIME  
-============================ */  
-  
-function notYet() {  
-  
-    const response =  
-        document.getElementById(  
-            "response"  
-        );  
-  
-    response.style.display =  
-        "block";  
-  
-    response.innerHTML =  
-        "I understand, my love. 🥺❤️ Take all the time you need. I respect your feelings, and I'll be here.";  
-  
-}  
-  
-</script>  </body>  </html>
+
+<script>
+
+const correctPIN = "2817";
+
+function unlockPage() {
+
+    const input = document.getElementById("pinInput");
+    const error = document.getElementById("pinError");
+
+    if (input.value === correctPIN) {
+
+        document.getElementById("pinScreen").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+
+        window.scrollTo(0, 0);
+
+    } else {
+
+        error.textContent = "Wrong PIN 🥺 Try again ❤️";
+
+        input.value = "";
+
+    }
+}
+
+
+/* Allow Enter key to unlock */
+document.getElementById("pinInput").addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        unlockPage();
+    }
+
+});
+
+
+/* MUSIC */
+function toggleMusic() {
+
+    const song = document.getElementById("ourSong");
+    const button = document.querySelector(".music-button");
+
+    if (song.paused) {
+
+        song.play()
+            .then(function() {
+                button.textContent = "⏸️ Pause our song";
+            })
+            .catch(function() {
+                button.textContent = "🎵 Tap again to play";
+            });
+
+    } else {
+
+        song.pause();
+        button.textContent = "🎵 Play our song";
+
+    }
+
+}
+
+
+/* YES BUTTON */
+function forgive() {
+
+    const response = document.getElementById("response");
+    const surprise = document.getElementById("surprise");
+
+    response.innerHTML =
+        "😭❤️ You just made your imperfect boy the happiest person alive.";
+
+    surprise.style.display = "block";
+
+    surprise.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* NEED TIME BUTTON */
+function notYet() {
+
+    const response = document.getElementById("response");
+
+    response.innerHTML =
+        "That's okay, my love. 🥺❤️ Take all the time you need. I'll respect your feelings.";
+
+}
+
+</script>
+
+</body>
+</html>
